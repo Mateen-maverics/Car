@@ -59,7 +59,8 @@ img {
 .home-page,
 .list-page,
 .register-page,
-.about-page {
+.about-page,
+.contact-page {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;

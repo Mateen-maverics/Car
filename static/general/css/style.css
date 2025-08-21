@@ -59,7 +59,8 @@ img {
 .home-page,
 .list-page,
 .register-page,
-.about-body {
+.about-page,
+.contact-page {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -156,9 +157,6 @@ img {
     margin: 24px auto;
     max-width: 350px;
     transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .car-card:hover {
@@ -192,4 +190,10 @@ img {
 
 .car-info strong {
     color: #1a73e8;
+}
+
+.car-list-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
