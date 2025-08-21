@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Our Car Project</title>
+    <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
+</head>
+<body class="about-page">
+    <!-- Navigation -->
+    {% include "partials/navbar.html" %}
+
+    <!-- About Content -->
+    <div class="about-overlay">
+        <div class="about-content">
+            <h1>About Our Car Project</h1>
+            <p>
+                The <strong>Car Project</strong> is designed to simplify the way people 
+                explore, compare, and connect with vehicles. Our goal is to provide 
+                a platform where car enthusiasts, buyers, and sellers can meet in a 
+                transparent and user-friendly environment.
+            </p>
+
+            <p>
+                We understand that choosing a car is more than just a purchase – it’s 
+                about selecting a companion for your journeys. That’s why our platform 
+                offers in-depth specifications, expert reviews, and the latest market 
+                insights to guide you in making informed decisions.
+            </p>
+
+            <p>
+                Our project is powered by innovation, trust, and passion for automobiles. 
+                By blending technology with automotive expertise, we are creating a 
+                solution that meets the needs of drivers in Nigeria and beyond.
+            </p>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="about-services-section">
+        <h2>Our Services</h2>
+        <div class="about-services-grid">
+            <div class="about-service-card">
+                <p>Detailed reviews and ratings of the latest car models to help you choose wisely.</p>
+            </div>
+            <div class="about-service-card">
+                <h3>Car Comparison</h3>
+                <p>Side-by-side car comparisons with specifications, pricing, and user feedback.</p>
+            </div>
+            <div class="about-service-card">
+                <h3>Dealership Connections</h3>
+                <p>We connect you with trusted dealerships to ensure safe and secure purchases.</p>
+            </div>
+            <div class="about-service-card">
+                <h3>Maintenance Tips</h3>
+                <p>Expert maintenance tips and guides to keep your car running smoothly.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

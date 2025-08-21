@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Details | CarZone</title>
+    <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
+</head>
+<body class="detail-page">
+    <!-- Navigation -->
+    {% include "partials/navbar.html" %}
+    <div class="car-list">
+        <h1>Car Details</h1>
+        <!-- CAR 1 -->
+         <div class="car-list-container">
+        <div class="car-card">
+            <img src="{{carregister.car_pic.url}}" alt="Toyota Corolla">
+            <div class="car-info">
+                <p><strong>Full Name:</strong> {{carregister.full_name}}</p>
+                <p><strong>Email:</strong> {{carregister.email}}</p>
+                <p><strong>Manufacturer:</strong>{{carregister.manufacturer}}</p>
+                <p><strong>Model:</strong>{{carregister.model}}</p>
+                <p><strong>Year:</strong>{{carregister.year}}</p>
+                <p><strong>Color:</strong>{{carregister.color}}</p>
+                <p><strong>Mileage:</strong>{{carregister.mileage}} km</p>
+                <p><strong>Price:</strong> ₦{{carregister.price}}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

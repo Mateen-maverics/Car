@@ -1,0 +1,195 @@
+/* Headings */
+h1 {
+    color: gold;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+    height: auto;   
+}
+
+/* General Navbar */
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li a.active {
+    color: gold;
+    text-decoration: underline;
+}
+
+.brand {
+    color: gold;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Page Backgrounds */
+.home-page,
+.list-page,
+.register-page,
+.about-body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    color: white;
+    min-height: 100vh;
+}
+
+/* Overlay for readability */
+.overlay,
+.about-overlay {
+    background-color: rgba(0, 0, 0, 0.6); 
+    min-height: 100vh;
+    padding: 120px 20px 50px; /* space for navbar */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Content Box */
+.content,
+.about-content {
+    max-width: 800px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* About Page Navbar */
+.about-navbar {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-brand {
+    font-size: 1.5em;
+    color: gold;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about-nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.about-nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.about-nav-links li a:hover,
+.about-nav-links li a.active {
+    color: gold;
+    text-decoration: underline;
+}
+
+/* Services */
+.about-services {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* car-card */
+.car-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    margin: 24px auto;
+    max-width: 350px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.car-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.car-info {
+    padding: 18px 20px 16px 20px;
+    width: 100%;
+}
+
+.car-info h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+    color: #2d2d2d;
+}
+
+.car-info p {
+    margin: 6px 0;
+    color: #444;
+    font-size: 1rem;
+}
+
+.car-info strong {
+    color: #1a73e8;
+}

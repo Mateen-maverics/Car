@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Listings | MY CAR</title>
+    <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
+</head>
+<body class="list-page">
+    <!-- Navigation -->
+    {% include "partials/navbar.html" %}
+        <div class="car-list">
+    <br>    <h1>Available Car Models</h1>
+    </div>
+        <div class="car-list-container">
+        {% for carregister in carregister_list %}
+        <div class="car-card">
+           <a href="{% url 'car_detail' carregister.pk %}"> <img src="{{carregister.car_pic.url}}" alt="Toyota Corolla"></a>   
+            <div class="car-info">
+                <h2></h2>
+                <p><strong>Manufacturer:</strong> {{carregister.manufacturer}}</p>
+                <p><strong>Year:</strong>{{carregister.year}}</p>
+                <p><strong>Model:</strong>{{carregister.model}}</p>
+           </div>
+        </div>
+        {% endfor %}
+        </div>
+    
+</body>
+</html>

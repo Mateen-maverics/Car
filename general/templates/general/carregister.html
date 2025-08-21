@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Your Car Interest | CarZone</title>
+    <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
+</head>
+<body class="register-page">
+    <!-- Navigation -->
+{% include "partials/navbar.html" %}
+
+   <br> <div class="form-container">
+        <h1>Register Your Car Requirements</h1>
+        <p>Please fill out the form below, and we’ll get in touch with the best options for you.</p>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}   
+            {% comment %} <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" required><br>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="car_pic">Car Picture:</label>
+            <input type="file" name="car_pic" id="car_pic"><br>
+
+            <label for="manufacturer">Preferred Manufacturer:</label>
+            <input type="text" id="manufacturer" name="manufacturer" required><br>
+            
+            <label for="model">Preferred Model:</label>
+            <input type="text" id="model" name="model" required><br>
+
+            <label for="year">Preferred Year:</label>
+            <input type="number" id="year" name="year" required><br>
+
+            <label for="color">Preferred Color:</label>
+            <input type="text" id="color" name="color" required><br>
+
+            <label for="mileage">Maximum Mileage (in km):</label>
+            <input type="number" id="mileage" name="mileage" required><br>
+
+            <label for="price">Maximum Price (in Naira):</label>
+            <input type="number" id="price" name="price" required><br> {% endcomment %}
+
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+</body>
+</html>
