@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services</title>
+    <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
+</head>
+<body class="service-page">
+    <!-- Navigation -->
+    {% include "partials/navbar.html" %}
+    <!-- Contact Section -->
+    
+    <div class="contact-overlay">
+    <div class="contact-content">
+     <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="services-hero-overlay">
+            <h1>Explore Our Premium Car Services</h1>
+            <p>Your trusted partner in car sales, maintenance, education, and innovation.</p>
+        </div>
+    </section>
+
+    <!-- Services About -->
+    <section class="services-about">
+        <div class="container">
+            <h2>Why Choose Our Car Services?</h2>
+            <p>
+                At <strong>Car Project</strong>, we believe cars are more than just machines – 
+                they are companions on your journey of life. Our services are carefully designed 
+                to guide car enthusiasts, buyers, and owners through every stage of vehicle ownership.
+            </p>
+            <p>
+                Whether you are buying your first car, maintaining a fleet, or learning about 
+                the future of automotive technology, we provide resources, expertise, and trusted 
+                partnerships to make your car experience seamless.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-grid-section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="{% static 'general/img/cardelership.png' %}" alt="Car Sales" style="width:100px; height:50px; display:block; margin:30px auto;">
+                    <h3>Car Sales & Dealership</h3>
+                    <p>Access a wide range of trusted vehicles, with verified dealers and 
+                    transparent pricing. We connect you directly to authentic car dealerships.</p>
+                </div>
+                <div class="service-card">
+                    <img src="{% static 'general/img/car_maintenance.png' %}" alt="Car Maintenance" style="width:100px; height:50px; display:block; margin:30px auto;">
+                    <h3>Maintenance & Repairs</h3>
+                    <p>From oil changes to engine overhauls, our certified partners help 
+                    keep your car running like new.</p>
+                </div>
+                <div class="service-card">
+                    <img src="{% static 'general/img/education.jpg' %}" alt="Car Education">
+                    <h3>Car Education & Guides</h3>
+                    <p>Learn car basics, safe driving habits, and even how to choose 
+                    eco-friendly vehicles through our comprehensive resources.</p>
+                </div>
+                <div class="service-card">
+                    <img src="{% static 'general/img/comparison.jpg' %}" alt="Car Comparison">
+                    <h3>Car Reviews & Comparisons</h3>
+                    <p>Explore in-depth reviews and compare models side-by-side to 
+                    make informed buying decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Long Tour Section -->
+    <section class="services-tour">
+        <div class="container">
+            <h2>A Long Tour Through the World of Cars</h2>
+            <p>
+                Imagine walking through a modern showroom: shining new models, futuristic designs, 
+                and hybrid cars redefining how we think about mobility. Our car project is not just 
+                about sales – it’s a journey through history, innovation, and the future of driving.
+            </p>
+            <p>
+                From the earliest engines to self-driving cars, automobiles have always been a symbol 
+                of freedom and progress. On this long tour, we guide you across different aspects of 
+                automotive culture – the excitement of first-time ownership, the pride of maintaining 
+                your dream car, and the anticipation of tomorrow’s breakthroughs in electric mobility.
+            </p>
+            <p>
+                Join us as we continue this journey, blending knowledge, service, and passion. 
+                Every car has a story, and we’re here to help you write yours.
+            </p>
+        </div>
+
+        <!-- CSS-Only Gallery -->
+        <div class="car-gallery">
+            <div class="gallery-track">
+                <img src="{% static 'general/img/car1.jpg' %}" alt="Car 1">
+                <img src="{% static 'general/img/car2.jpg' %}" alt="Car 2">
+                <img src="{% static 'general/img/car3.jpg' %}" alt="Car 3">
+                <img src="{% static 'general/img/car4.jpg' %}" alt="Car 4">
+                <img src="{% static 'general/img/car5.jpg' %}" alt="Car 5">
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>“Buying my first car here was a smooth and stress-free experience. 
+                    The staff were professional and transparent about everything.”</p>
+                    <h4>- James O.</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>“I always bring my SUV here for maintenance. They treat it like their own 
+                    and I always leave with peace of mind.”</p>
+                    <h4>- Sarah K.</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>“Their comparison tools helped me choose the best car within my budget. 
+                    I couldn’t be happier with my decision.”</p>
+                    <h4>- Daniel R.</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="services-cta">
+        <div class="container">
+            <h2>Ready to Experience More?</h2>
+            <p>Whether you need a new car, professional advice, or simply love learning about cars, 
+            we’re here to serve you.</p>
+            <a href="{% url 'contact' %}" class="cta-button">Contact Us Today</a>
+        </div>
+    </section>
+     </div> <!-- close .contact-content -->
+  </div> <!-- close .contact-overlay -->
+</body>
+</html>

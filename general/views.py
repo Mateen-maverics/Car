@@ -66,3 +66,5 @@ class ContactDetailView(DetailView):
     template_name = 'general/details.html'
     model = Contact
 
+class ServicePageView(TemplateView):
+    template_name = 'general/service.html'

@@ -10,4 +10,5 @@ urlpatterns = [
     path('view_contact/', ContactFormResultView.as_view(), name='view_contact'),
     path('contact/<int:pk>/', ContactDetailView.as_view(), name='contact_detail'),
     path('carregister/', RegisterPageView.as_view(), name='car_register'),
+    path('services/', ServicePageView.as_view(), name='services'),
 ]
