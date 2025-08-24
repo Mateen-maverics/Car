@@ -1,21 +1,100 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cars</title>
-        <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
-    </head>
-    <body class="home-page">
-         <!-- Navigation -->
-{% include "partials/navbar.html" %}
-    
-        <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-        <!-- <img src="{% static 'general/img/car.jpg' %}" alt=""> -->
-        <h1>Car Dealership Page</h1>
-    </section>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealership</title>
+    <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
+</head>
+<body class="home-page">
+    <!-- Navigation -->
+    {% include "partials/navbar.html" %}
 
-     </body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay">
+            <h1>Welcome to Our Car Dealership</h1>
+            <p>Your trusted partner for car sales, rentals, and insurance.</p>
+        </div>
+    </section>
+
+    <!-- Sales Section -->
+    <section class="sales-section container">
+        <h2>Car Sales</h2>
+        <p>Browse our collection of new and used cars, with options that fit every budget and lifestyle.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="{% static 'general/img/car_sales.jpg' %}" alt="Car Sales">
+                <h3>Wide Variety</h3>
+                <p>From economy to luxury cars, we’ve got something for everyone.</p>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'general/img/luxury.jpg' %}" alt="Luxury Car">
+                <h3>Luxury Cars</h3>
+                <p>Premium options with high performance and comfort.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rentals Section -->
+    <section class="rentals-section container">
+        <h2>Car Rentals</h2>
+        <p>Flexible and affordable rental plans for short-term and long-term use.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="{% static 'general/img/rental.jpg' %}" alt="Car Rentals">
+                <h3>Daily Rentals</h3>
+                <p>Perfect for quick trips around town.</p>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'general/img/family.jpg' %}" alt="Family Car">
+                <h3>Family Trips</h3>
+                <p>Spacious and comfortable cars for your vacations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance Section -->
+    <section class="insurance-section container">
+        <h2>Insurance</h2>
+        <p>Protect your vehicle and drive worry-free with our tailored insurance plans.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="{% static 'general/img/car_insurance.jpg' %}" alt="Insurance">
+                <h3>Comprehensive Cover</h3>
+                <p>Full protection for peace of mind.</p>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'general/img/protection.jpg' %}" alt="Car Protection">
+                <h3>Affordable Premiums</h3>
+                <p>Quality insurance at prices that suit you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials container">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>“I bought my dream car here, and the process was smooth and stress-free.”</p>
+                <h4>- John D.</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>“Their rental service was affordable and reliable. Highly recommended!”</p>
+                <h4>- Sarah W.</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>“I got an excellent insurance deal. Now I feel confident on the road.”</p>
+                <h4>- Michael K.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Car Project. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

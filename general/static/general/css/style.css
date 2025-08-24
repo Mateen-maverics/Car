@@ -1,4 +1,12 @@
-/* Headings */
+/* ===== GENERAL RESET ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
 h1 {
     color: white;
     font-size: 2.5em;
@@ -10,12 +18,13 @@ p {
     line-height: 1.6;
 }
 
-img {
+/* Restrict global img to avoid overriding cards */
+body > img {
     width: 100%;
-    height: auto;   
+    height: auto;
 }
 
-/* General Navbar */
+/* ===== NAVBAR ===== */
 .navbar-nav {
     display: flex;
     justify-content: space-around;
@@ -42,55 +51,6 @@ img {
     color: gold;
     font-size: 1.5em;
     font-weight: bold;
-}
-
-/* Hero Section */
-.hero {
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-/* Page Backgrounds */
-.home-page,
-.list-page,
-.register-page,
-.about-page,
-.contact-page {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('../img/background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; 
-    color: white;
-    min-height: 100vh;
-}
-
-/* Overlay for readability */
-.overlay,
-.about-overlay {
-    background-color: rgba(0, 0, 0, 0.6); 
-    min-height: 100vh;
-    padding: 120px 20px 50px; /* space for navbar */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-/* Content Box */
-.content,
-.about-content {
-    max-width: 800px;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    text-align: center;
 }
 
 /* About Page Navbar */
@@ -140,7 +100,182 @@ img {
     text-decoration: underline;
 }
 
-/* car-card */
+/* ===== HERO SECTIONS ===== */
+.hero,
+.about-hero,
+.services-hero {
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    color: white;
+}
+
+.about-hero {
+    background: url('../img/hero.jpg') no-repeat center center/cover;
+}
+
+.about-hero .hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.about-hero h1 {
+    font-size: 2.8rem;
+    color: gold;
+}
+
+.services-hero {
+    height: 450px;
+    background-image: url('../img/hero.jpg');
+}
+
+.services-hero-overlay {
+    background: rgba(0,0,0,0.6);
+    padding: 40px;
+    border-radius: 12px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.services-hero h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: gold;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.services-hero p {
+    font-size: 1.3em;
+    line-height: 1.6;
+}
+
+/* ===== PAGES BACKGROUND ===== */
+.home-page,
+.list-page,
+.register-page,
+.about-page,
+.contact-page,
+.services-page {
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Overlay for readability */
+.overlay,
+.about-overlay,
+.services-page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.55);
+    z-index: -1;
+}
+
+/* ===== ABOUT PAGE SECTIONS ===== */
+.about-page section {
+    padding: 60px 20px;
+}
+
+.about-page h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: gold;
+}
+
+.about-mission {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.mission-card,
+.vision-card {
+    flex: 1;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.why-card {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.about-stats {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-card h2 {
+    color: gold;
+    font-size: 2.5rem;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+}
+
+.team-member img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.about-cta {
+    background: linear-gradient(135deg, gold, #111);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about-cta h2 {
+    color: #fff;
+}
+
+/* ===== CAR LIST CARDS ===== */
 .car-card {
     background: #fff;
     border-radius: 12px;
@@ -164,12 +299,11 @@ img {
 }
 
 .car-info {
-    padding: 18px 20px 16px 20px;
-    width: 100%;
+    padding: 18px 20px;
 }
 
 .car-info h2 {
-    margin: 0 0 8px 0;
+    margin: 0 0 8px;
     font-size: 1.3rem;
     color: #2d2d2d;
 }
@@ -184,13 +318,13 @@ img {
     color: #1a73e8;
 }
 
-.car-list-container{
+.car-list-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-/* Gallery Section - CSS Only Scroll Snap */
+/* Gallery Section */
 .car-gallery {
     margin: 40px auto;
     width: 90%;
@@ -200,10 +334,7 @@ img {
     gap: 20px;
     padding: 10px;
 }
-.gallery-track {
-    display: flex;
-    gap: 20px;
-}
+
 .gallery-track img {
     width: 350px;
     height: 220px;
@@ -211,58 +342,10 @@ img {
     border-radius: 12px;
     scroll-snap-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    flex-shrink : 0;
+    flex-shrink: 0;
 }
 
-/* General Reset */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000; /* Black background */
-    color: #fff;
-}
-
-/* Hero Section */
-.services-hero {
-    background-image: url('../img/hero.jpg'); /* Custom hero image */
-    background-size: cover;
-    background-position: center;
-    height: 450px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-    color: #fff;
-}
-
-.services-hero-overlay {
-    background: rgba(0,0,0,0.6);
-    padding: 40px;
-    border-radius: 12px;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.services-hero h1 {
-    font-size: 3em;
-    margin-bottom: 15px;
-    color: gold;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-}
-
-.services-hero p {
-    font-size: 1.3em;
-    line-height: 1.6;
-}
-
-/* Decorative Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Service Section */
+/* ===== SERVICES ===== */
 .services-grid-section {
     padding: 60px 20px;
     background: rgba(255,255,255,0.05);
@@ -291,11 +374,13 @@ body {
 }
 
 .service-card img {
-    width: 100%;
-    height: 180px;
+    width: 90%;            /* smaller image */
+    max-width: 250px;      /* prevents oversized images */
+    height: 160px;         /* slightly reduced height */
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;   /* centers the image */
+    display: block;
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
@@ -314,7 +399,7 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* Testimonials Section */
+/* ===== TESTIMONIALS ===== */
 .testimonials {
     background: linear-gradient(to right, #111, #222);
     padding: 60px 20px;
@@ -346,7 +431,7 @@ body {
     color: gold;
 }
 
-/* CTA */
+/* ===== CTA ===== */
 .services-cta {
     padding: 60px 20px;
     text-align: center;
@@ -376,14 +461,8 @@ body {
     background: #e6c200;
 }
 
-.services-page::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.55); /* dark transparent overlay */
-    z-index: -1;
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-
