@@ -8,6 +8,8 @@ class HomePageView(TemplateView):
     template_name = 'general/index.html'
 
     
+class LuxuryPageView(TemplateView):
+    template_name = 'general/luxury.html'
 class AboutPageView(TemplateView):
     template_name = 'general/about.html'
     

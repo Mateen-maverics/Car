@@ -399,6 +399,11 @@ body > img {
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
+.service-card a{
+    text-decoration: none;
+    color: inherit;
+}
+
 /* ===== TESTIMONIALS ===== */
 .testimonials {
     background: linear-gradient(to right, #111, #222);

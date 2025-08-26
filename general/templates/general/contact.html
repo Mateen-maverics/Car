@@ -13,6 +13,7 @@
     <!-- Contact Section -->
   <div class="contact-overlay">
     <div class="contact-content">
+      <br>
       <h1>Get in Touch</h1>
       <p>If you’ve registered a car or have any inquiry, you can reach out to us using the form below.  
       We’ll get back to you as soon as possible.</p>
@@ -30,6 +31,9 @@
         <textarea name="message" id="message" rows="6" required></textarea>
 
         <br><button type="submit">Send Message</button>
+        {% if success %}
+                <p style="color: green;">Message sent successfully!</p>
+             {% endif %}
       </form>
     </div>
   </div>

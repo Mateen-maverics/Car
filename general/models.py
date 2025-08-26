@@ -9,9 +9,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.name}"
-    
-
-
 
 class CarRegister(models.Model):
     full_name = models.CharField(max_length=100, default="Sample Name")
