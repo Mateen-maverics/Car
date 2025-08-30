@@ -466,6 +466,136 @@ body > img {
     background: #e6c200;
 }
 
+/* ===== AUTH PAGES (Login & Signup) ===== */
+.auth-page {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.auth-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-title {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #2a5298;
+    box-shadow: 0 0 4px rgba(42,82,152,0.5);
+}
+
+.btn {
+    background: #2a5298;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #1e3c72;
+}
+
+.auth-footer {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: #2a5298;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error-message {
+    background: #ffe5e5;
+    border: 1px solid #ff9999;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    color: #cc0000;
+    font-size: 0.9rem;
+}
+
+/* ===== NAVBAR DROPDOWN ===== */
+.navbar {
+    background: #2a5298;
+    padding: 1rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    min-width: 150px;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu li a {
+    color: #333;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px); }
