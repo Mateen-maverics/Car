@@ -38,6 +38,8 @@ class HomePageView(TemplateView):
 class LuxuryPageView(TemplateView):
     template_name = 'general/luxury.html'
 
+class AdminPageView(TemplateView):
+    template_name = 'general/admin.html'
 
 class AboutPageView(TemplateView):
     template_name = 'general/about.html'

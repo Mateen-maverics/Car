@@ -13,6 +13,7 @@ urlpatterns = [
     path('carregister/', RegisterPageView.as_view(), name='car_register'),
     path('services/', ServicePageView.as_view(), name='services'),
     path('luxury/', LuxuryPageView.as_view(), name='luxury'),
+    path('admin/', AdminPageView.as_view(), name='admin'),    
     path('buy/<int:car_id>/', buy_car, name='buy_car'),  # Buying a car
 
     # 🔑 Auth

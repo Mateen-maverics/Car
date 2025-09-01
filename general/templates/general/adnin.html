@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/luxury.css' %}">
+</head>
+<body class="admin-page">
+
+  <h1>Admin Dashboard</h1>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Car</th>
+        <th>Owner</th>
+        <th>Email</th>
+        <th>Year</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in carregister_list %}
+      <tr>
+        <td>{{ car.manufacturer }} {{ car.model }}</td>
+        <td>{{ car.full_name }}</td>
+        <td>{{ car.email }}</td>
+        <td>{{ car.year }}</td>
+        <td>₦{{ car.price }}</td>
+        <td class="admin-actions">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="6">No cars registered yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="#top" class="back-to-top">↑</a>
+</body>
+</html>

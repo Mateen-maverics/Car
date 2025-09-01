@@ -3,28 +3,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Car Listings | MY CAR</title>
+    <title>Car List</title>
     <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
 </head>
+<body id="top">
 <body class="list-page">
     <!-- Navigation -->
     {% include "partials/navbar.html" %}
-        <div class="car-list">
-    <br>    <h1>Available Car Models</h1>
-    </div>
-        <div class="car-list-container">
+
+    <!-- Header -->
+    <header class="hero">
+        <h1>Available cars</h1>
+        <p>Browse through the collection of cars registered by our users.</p>
         {% for carregister in carregister_list %}
+    </header>
+
+    <!-- Car List -->
+  <section class="car-collection">
+    <h2>Registered Cars</h2>
+    <div class="car-grid">
+      {% for car in carregister_list %}
         <div class="car-card">
-           <a href="{% url 'car_detail' carregister.pk %}"> <img src="{{carregister.car_pic.url}}" alt="Toyota Corolla"></a>   
-            <div class="car-info">
-                <h2></h2>
-                <p><strong>Manufacturer:</strong> {{carregister.manufacturer}}</p>
-                <p><strong>Year:</strong>{{carregister.year}}</p>
-                <p><strong>Model:</strong>{{carregister.model}}</p>
+          {% if car.car_pic %}
+            <img src="{{ car.car_pic.url }}" alt="{{ car.manufacturer }} {{ car.model }}">
+          {% else %}
+            <img src="{% static 'img/default-car.jpg' %}" alt="Default Car">
+          {% endif %}
+          <div class="car-info">
+            <h3>{{ car.manufacturer }} {{ car.model }}</h3>
+            <p><strong>Year:</strong> {{ car.year }}</p>
+            <p><strong>Color:</strong> {{ car.color }}</p>
+            <p><strong>Mileage:</strong> {{ car.mileage }} km</p>
+            <p><strong>Price:</strong> ₦{{ car.price }}</p>
+            </div>
            </div>
-        </div>
+        {% empty %}
+        <p>No cars have been registered yet. <a href="{% url 'car_register' %}">Be the first!</a></p>
         {% endfor %}
         </div>
+    </section>
+
+    <!-- back to Top -->
+    <a href="#top" class="back-to-top">Back to Top</a>
     
 </body>
 </html>

@@ -597,7 +597,7 @@ body > img {
 
 /* HERO */
 .hero {
-  background: url("img/luxury-hero.jpg") no-repeat center center/cover;
+  background: url("img/hero-aventador.jpg") no-repeat center center/cover;
   height: 80vh;
   display: flex;
   justify-content: center;
