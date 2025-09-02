@@ -2,23 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Car List</title>
-    <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
+  <meta charset="UTF-8">
+  <title>Car List</title>
+  <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
 </head>
 <body id="top">
-<body class="list-page">
-    <!-- Navigation -->
+
+<!--Navigation-->
     {% include "partials/navbar.html" %}
 
-    <!-- Header -->
-    <header class="hero">
-        <h1>Available cars</h1>
-        <p>Browse through the collection of cars registered by our users.</p>
-        {% for carregister in carregister_list %}
-    </header>
+  
+  <!-- Header -->
+  <header class="hero">
+    <h1>Available Cars</h1>
+    <p>Browse through the collection of cars registered by our users</p>
+    <a href="{% url 'car_register' %}" class="btn">Register Your Car</a>
+  </header>
 
-    <!-- Car List -->
+  <!-- Car List -->
   <section class="car-collection">
     <h2>Registered Cars</h2>
     <div class="car-grid">
@@ -35,16 +36,17 @@
             <p><strong>Color:</strong> {{ car.color }}</p>
             <p><strong>Mileage:</strong> {{ car.mileage }} km</p>
             <p><strong>Price:</strong> ₦{{ car.price }}</p>
-            </div>
-           </div>
-        {% empty %}
-        <p>No cars have been registered yet. <a href="{% url 'car_register' %}">Be the first!</a></p>
-        {% endfor %}
+            <p><strong>Owner:</strong> {{ car.full_name }} ({{ car.email }})</p>
+          </div>
         </div>
-    </section>
+      {% empty %}
+        <p>No cars have been registered yet. <a href="{% url 'car_register' %}">Be the first!</a></p>
+      {% endfor %}
+    </div>
+  </section>
 
-    <!-- back to Top -->
-    <a href="#top" class="back-to-top">Back to Top</a>
-    
+  <!-- Back to Top -->
+  <a href="#top" class="back-to-top">↑</a>
+
 </body>
 </html>

@@ -4,11 +4,11 @@ body {
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #000;
-    color: #fff;
+    color: #e7e1e1;
 }
 
 h1 {
-    color: white;
+    color: rgb(253, 245, 245);
     font-size: 2.5em;
     margin-bottom: 15px;
 }
@@ -740,4 +740,60 @@ footer {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Form container */
+.form-container {
+  background: #fff; /* white box */
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 3rem auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  color: #000; /* default text black */
+}
+
+/* Paragraph wrappers from form.as_p */
+.form-container p {
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+/* Form labels */
+.form-container label {
+  display: block;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+/* Inputs, selects, textareas */
+.form-container input,
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #000; /* input text black */
+  background: #f9f9f9;
+}
+
+/* Submit button */
+.form-container button {
+  background: #d4af37; /* gold */
+  color: #000;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form-container button:hover {
+  background: #000;
+  color: #fff;
 }

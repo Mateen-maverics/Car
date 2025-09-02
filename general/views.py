@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from general.models import CarRegister, Contact
 from .forms import SignUpForm
+from django.views.generic.edit import CreateView
+from general.models import signup
 
 
 # Car purchase - login required
@@ -17,17 +19,16 @@ def buy_car(request, car_id):
     return render(request, "buy_car.html", {"car": car})
 
 
-# Signup page
-def signup(request):
-    if request.method == "POST":
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)  # log user in
-            return redirect("home")  # redirect to homepage
-    else:
-        form = SignUpForm()
-    return render(request, "general/signup.html", {"form": form})
+class SignupView(CreateView):
+    model = signup
+    form_class = SignUpForm
+    template_name = "general/signup.html"
+    success_url = reverse_lazy("home")
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        login(self.request, self.object)
+        return response
 
 
 # Static pages
@@ -102,3 +103,6 @@ class ContactDetailView(DetailView):
 # Services Page
 class ServicePageView(TemplateView):
     template_name = 'general/service.html'
+
+class adminsite(TemplateView):
+    template_name = 'general/admin.html'

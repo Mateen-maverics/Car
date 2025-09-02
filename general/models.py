@@ -41,3 +41,14 @@ class LuxuryCar(models.Model):
 
     def __str__(self):
         return f"{self.manufacturer} {self.model} ({self.year})"
+    
+class signup(models.Model):
+    username = models.CharField(max_length=150, unique=True)
+    email = models.EmailField(unique=True)
+    phonenumber = models.CharField(max_length=15, blank=True)
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=30, blank=True)
+    password = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.username

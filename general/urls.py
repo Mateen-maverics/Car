@@ -13,11 +13,11 @@ urlpatterns = [
     path('carregister/', RegisterPageView.as_view(), name='car_register'),
     path('services/', ServicePageView.as_view(), name='services'),
     path('luxury/', LuxuryPageView.as_view(), name='luxury'),
-    path('admin/', AdminPageView.as_view(), name='admin'),    
+    path('adminsite/', AdminPageView.as_view(), name='adminsite'),    
     path('buy/<int:car_id>/', buy_car, name='buy_car'),  # Buying a car
 
     # 🔑 Auth
-    path('signup/', signup, name='signup'),
+    path('signup/', SignupView.as_view(), name='signup'),
     path('login/', auth_views.LoginView.as_view(template_name="general/login.html"), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page="home"), name='logout'),
 ]

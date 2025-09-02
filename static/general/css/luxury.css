@@ -11,9 +11,9 @@ body {
 .hero {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-              url('../img/default-car.jpg') center/cover;
   color: gold;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero h1 {
@@ -151,18 +151,25 @@ body {
 .register-form button:hover {
   background: #d4af37;
 }
-/* Navbar base */
+
+/* Luxury Navbar */
 .luxury-navbar {
-  background-color: #000; /* black background */
-  border-bottom: 2px solid #d4af37; /* gold underline */
-  padding: 1rem;
+  background: #000;
+  border-bottom: 2px solid #d4af37;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .about-brand {
   color: #d4af37;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .about-brand:hover {
@@ -172,30 +179,51 @@ body {
 .about-nav-links {
   list-style: none;
   display: flex;
-  gap: 1.2rem;
+  gap: 2rem;
   margin: 0;
   padding: 0;
 }
 
 .about-nav-link {
+  position: relative;
   color: #fff;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.about-nav-link:hover {
-  color: #d4af37; /* gold hover */
+.about-nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #d4af37;
+  transition: width 0.3s ease;
 }
 
-/* Special Admin link */
+.about-nav-link:hover {
+  color: #d4af37;
+}
+
+.about-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Special Admin link styled as button */
 .admin-link {
+  padding: 8px 14px;
+  border: 1px solid #d4af37;
+  border-radius: 6px;
   color: #d4af37;
   font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .admin-link:hover {
-  color: #fff;
+  background: #d4af37;
+  color: #000;
 }
 
 /* Admin Dashboard */
