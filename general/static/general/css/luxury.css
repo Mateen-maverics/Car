@@ -1,193 +1,36 @@
-/* Luxury Black & Gold Theme */
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #0a0a0a;
-  color: #0c0a0a;
-  margin: 0;
-  padding: 0;
-}
+/* Import shared design */
+@import url('style.css');
 
-/* Hero Banner */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  color: gold;
-  background: url('../img/hero-aventador.jpg') no-repeat center center/cover;
-  background-size: cover;
-  background-position: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: gold;
-  color: black;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #d4af37;
-}
-
-/* Car Collection */
-.car-collection {
-  padding: 50px 20px;
-}
-
-.car-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.car-card {
-  background: #111;
-  border: 1px solid gold;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.8);
-  transition: transform 0.3s;
-}
-
-.car-card:hover {
-  transform: scale(1.05);
-}
-
-.car-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.car-info {
-  padding: 15px;
-}
-
-/* Logo Showcase */
-.logo-showcase {
-  padding: 50px 20px;
-  background: #111;
-  text-align: center;
-}
-
-.logo-showcase h2 {
-  color: gold;
-  margin-bottom: 20px;
-}
-
-.logo-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-}
-
-.logo-grid img {
-  height: 60px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.3s;
-}
-
-.logo-grid img:hover {
-  transform: scale(1.2);
-  filter: brightness(1) invert(0);
-}
-
-/* Register Form */
-.register-form {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #111;
-  border: 1px solid gold;
-  border-radius: 12px;
-}
-
-.register-form h2 {
-  text-align: center;
-  color: gold;
-}
-
-.register-form label {
-  display: block;
-  margin-top: 15px;
-  color: #0b0a0a;
-}
-
-.register-form input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 8px;
-  border: 1px solid #555;
-  background: #222;
-  color: #0e0d0d;
-}
-
-.register-form button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 12px;
-  background: gold;
-  border: none;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-.register-form button:hover {
-  background: #d4af37;
-}
-
-/* Luxury Navbar */
+/* Luxury overrides */
 .luxury-navbar {
-  background: #000;
-  border-bottom: 2px solid #d4af37;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: #000 !important;
+  border-bottom: 2px solid #d4af37 !important;
 }
-
 .about-brand {
-  color: #d4af37;
-  font-size: 1.8rem;
+  font-size: 2rem !important;
+  color: #d4af37 !important;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-decoration: none;
-  transition: color 0.3s ease;
 }
+.about-brand:hover { color: #fff !important; }
 
-.about-brand:hover {
-  color: #fff;
-}
 
 .about-nav-links {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 2rem;
   margin: 0;
   padding: 0;
 }
 
+.about-nav-item {
+  margin: 0;
+}
+
 .about-nav-link {
   position: relative;
   color: #fff;
+  font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -212,77 +55,9 @@ body {
   width: 100%;
 }
 
-/* Special Admin link styled as button */
+/* Admin link styled as button */
 .admin-link {
   padding: 8px 14px;
   border: 1px solid #d4af37;
   border-radius: 6px;
-  color: #d4af37;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.admin-link:hover {
-  background: #d4af37;
-  color: #000;
-}
-
-/* Admin Dashboard */
-.admin-page {
-  padding: 40px;
-}
-
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #111;
-  color: #f5f5f5;
-}
-
-.admin-table th, .admin-table td {
-  border: 1px solid gold;
-  padding: 12px;
-  text-align: center;
-}
-
-.admin-actions button {
-  margin: 0 5px;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.edit-btn {
-  background: #28a745;
-  color: white;
-}
-
-.delete-btn {
-  background: #dc3545;
-  color: white;
-}
-
-/* Back to Top */
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: gold;
-  color: black;
-  padding: 12px 16px;
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 20px;
-  display: none;
-  transition: 0.3s;
-}
-
-.back-to-top:hover {
-  background: #d4af37;
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
 }

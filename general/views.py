@@ -3,10 +3,10 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-from general.models import CarRegister, Contact
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import AuthenticationForm
+from general.models import CarRegister, Contact, signup
 from .forms import SignUpForm
-from django.views.generic.edit import CreateView
-from general.models import signup
 
 
 # Car purchase - login required
@@ -19,6 +19,7 @@ def buy_car(request, car_id):
     return render(request, "buy_car.html", {"car": car})
 
 
+# ================== AUTH ================== #
 class SignupView(CreateView):
     model = signup
     form_class = SignUpForm
@@ -31,7 +32,20 @@ class SignupView(CreateView):
         return response
 
 
-# Static pages
+class UserLoginView(LoginView):
+    template_name = "general/login.html"
+    authentication_form = AuthenticationForm
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy("home")
+
+
+class UserLogoutView(LogoutView):
+    next_page = reverse_lazy("home")
+
+
+# ================== STATIC PAGES ================== #
 class HomePageView(TemplateView):
     template_name = 'general/index.html'
 
@@ -39,14 +53,16 @@ class HomePageView(TemplateView):
 class LuxuryPageView(TemplateView):
     template_name = 'general/luxury.html'
 
+
 class AdminPageView(TemplateView):
     template_name = 'general/admin.html'
+
 
 class AboutPageView(TemplateView):
     template_name = 'general/about.html'
 
 
-# Car Registration Page
+# ================== CAR REGISTRATION ================== #
 class RegisterPageView(CreateView):
     template_name = 'general/carregister.html'
     model = CarRegister
@@ -54,7 +70,7 @@ class RegisterPageView(CreateView):
     success_url = reverse_lazy('carlist')
 
 
-# Contact Page
+# ================== CONTACT ================== #
 class ContactPageView(CreateView):
     template_name = 'general/contact.html'
     model = Contact
@@ -75,34 +91,33 @@ class ContactPageView(CreateView):
         return context
 
 
-# Car List Page
+# ================== CAR LIST & DETAILS ================== #
 class CarListView(ListView):
     model = CarRegister
     template_name = "general/carlist.html"
     context_object_name = "carregister_list"
 
 
-# Contact Messages List
-class ContactFormResultView(ListView):
-    template_name = 'general/view_contact.html'
-    model = Contact
-
-
-# Car Details
 class CarDetailView(DetailView):
     template_name = 'general/cardetail.html'
     model = CarRegister
 
 
-# Contact Details
+# ================== CONTACT LIST & DETAILS ================== #
+class ContactFormResultView(ListView):
+    template_name = 'general/view_contact.html'
+    model = Contact
+
+
 class ContactDetailView(DetailView):
     template_name = 'general/details.html'
     model = Contact
 
 
-# Services Page
+# ================== SERVICES ================== #
 class ServicePageView(TemplateView):
     template_name = 'general/service.html'
+
 
 class adminsite(TemplateView):
     template_name = 'general/admin.html'
