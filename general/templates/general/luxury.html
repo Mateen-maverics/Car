@@ -1,135 +1,135 @@
-{% load static %}
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luxury Car Collection</title>
-  <link rel="stylesheet" href="{% static 'general/css/luxury.css' %}">
-</head>
-<body>
+  {% load static %}
+    <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Car Collection</title>
+    <link rel="stylesheet" href="{% static 'general/css/luxury.css' %}">
+  </head>
+  <body>
 
-<!-- Navigation -->
-    {% include "partials/navbar.html" %}
+  <!-- Navigation -->
+      {% include "partials/navbar.html" %}
 
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <h1>Experience True Luxury on Wheels</h1>
-      <p>Explore the finest cars from the world’s most prestigious brands.</p>
-      <a href="#collection" class="btn">Explore Collection</a>
-    </div>
-  </section>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1>Experience True Luxury on Wheels</h1>
+        <p>Explore the finest cars from the world’s most prestigious brands.</p>
+        <a href="#collection" class="btn">Explore Collection</a>
+      </div>
+    </section>
 
-  <!-- ===== BRAND LOGOS ===== -->
-  <section class="logos" id="logos">
-    <h2>Featured Brands</h2>
-    <div class="logo-grid">
-      <img src="{% static 'general/img/mercedes-logo.jpg' %}" alt="Mercedes-Benz">
-      <img src="{% static 'general/img/bmw-logo.png' %}" alt="BMW">
-      <img src="{% static 'general/img/audi-logo.png' %}" alt="Audi">
-      <img src="{% static 'general/img/lamborghini-logo.png' %}" alt="Lamborghini">
-      <img src="{% static 'general/img/ferari-logo.png' %}" alt="Ferrari">
-      <img src="{% static 'general/img/porsche-logo.png' %}" alt="Porsche">
-      <img src="{% static 'general/img/rollsroyce-logo.jpg' %}" alt="Rolls Royce">
-      <img src="{% static 'general/img/bugatti-logo.jpg' %}" alt="Bugatti">
-      <img src="{% static 'general/img/tesla-logo.png' %}" alt="Tesla">
-    </div>
-  </section>
+    <!-- ===== BRAND LOGOS ===== -->
+    <section class="logos" id="logos">
+      <h2>Featured Brands</h2>
+      <div class="logo-grid">
+        <img src="{% static 'general/img/mercedes-logo.jpg' %}" alt="Mercedes-Benz">
+        <img src="{% static 'general/img/bmw-logo.png' %}" alt="BMW">
+        <img src="{% static 'general/img/audi-logo.png' %}" alt="Audi">
+        <img src="{% static 'general/img/lamborghini-logo.png' %}" alt="Lamborghini">
+        <img src="{% static 'general/img/ferrari-logo.png' %}" alt="Ferrari">
+        <img src="{% static 'general/img/porsche-logo.png' %}" alt="Porsche">
+        <img src="{% static 'general/img/rollsroyce-logo.jpg' %}" alt="Rolls Royce">
+        <img src="{% static 'general/img/bugatti-logo.jpg' %}" alt="Bugatti">
+        <img src="{% static 'general/img/tesla-logo.png' %}" alt="Tesla">
+      </div>
+    </section>
 
-  <!-- ===== COLLECTION ===== -->
-  <section class="car-section" id="collection">
-    <h2>Our Collection</h2>
-    <div class="car-grid">
-      <div class="car-card">
-        <img src="{% static 'general/img/mercedes-sclass.jpg' %}" alt="Mercedes S-Class">
-        <h3>Mercedes-Benz S-Class</h3>
-        <p>₦70,000,000 — Elegance and cutting-edge comfort.</p>
+    <!-- ===== COLLECTION ===== -->
+    <section class="car-section" id="collection">
+      <h2>Our Collection</h2>
+      <div class="car-grid">
+        <div class="car-card">
+          <img src="{% static 'general/img/mercedes-sclass.jpg' %}" alt="Mercedes S-Class">
+          <h3>Mercedes-Benz S-Class</h3>
+          <p>₦70,000,000 — Elegance and cutting-edge comfort.</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/bmw-i8.webp' %}" alt="BMW i8">
+          <h3>BMW i8</h3>
+          <p>₦65,000,000 — Hybrid supercar with futuristic design.</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/audi-r8-2023.webp' %}" alt="Audi R8">
+          <h3>Audi R8</h3>
+          <p>₦80,000,000 — V10 powerhouse with refined style.</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/lamborghini-aventador.jpg' %}" alt="Lamborghini Aventador">
+          <h3>Lamborghini Aventador</h3>
+          <p>₦150,000,000 — Raw speed and iconic presence.</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/ferrari-roma.webp' %}" alt="Ferrari Roma">
+          <h3>Ferrari Roma</h3>
+          <p>₦120,000,000 — Italian art meets cutting-edge performance.</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/porsche-911.jpg' %}" alt="Porsche 911">
+          <h3>Porsche 911</h3>
+          <p>₦85,000,000 — Legendary sports car redefined.</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/rollsroyce-phantom.webp' %}" alt="Rolls Royce Phantom">
+          <h3>Rolls Royce Phantom</h3>
+          <p>₦250,000,000 — The definition of luxury and prestige.</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/bugatti-chiron.jpg' %}" alt="Bugatti Chiron">
+          <h3>Bugatti Chiron</h3>
+          <p>₦1,200,000,000 — Engineering masterpiece of speed.</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/tesla-models.jpg' %}" alt="Tesla Model S Plaid">
+          <h3>Tesla Model S Plaid</h3>
+          <p>₦95,000,000 — The fastest electric car in the world.</p>
+        </div>
       </div>
-      <div class="car-card">
-        <img src="{% static 'general/img/bmw-i8.webp' %}" alt="BMW i8">
-        <h3>BMW i8</h3>
-        <p>₦65,000,000 — Hybrid supercar with futuristic design.</p>
-      </div>
-      <div class="car-card">
-        <img src="{% static 'general/img/audi-r8-2023.webp' %}" alt="Audi R8">
-        <h3>Audi R8</h3>
-        <p>₦80,000,000 — V10 powerhouse with refined style.</p>
-      </div>
-      <div class="car-card">
-        <img src="{% static 'general/img/lamborghini-aventador.jpg' %}" alt="Lamborghini Aventador">
-        <h3>Lamborghini Aventador</h3>
-        <p>₦150,000,000 — Raw speed and iconic presence.</p>
-      </div>
-      <div class="car-card">
-        <img src="{% static 'general/img/ferrari-roma.webp' %}" alt="Ferrari Roma">
-        <h3>Ferrari Roma</h3>
-        <p>₦120,000,000 — Italian art meets cutting-edge performance.</p>
-      </div>
-      <div class="car-card">
-        <img src="{% static 'general/img/porsche-911.jpg' %}" alt="Porsche 911">
-        <h3>Porsche 911</h3>
-        <p>₦85,000,000 — Legendary sports car redefined.</p>
-      </div>
-      <div class="car-card">
-        <img src="{% static 'general/img/rollsroyce-phantom.webp' %}" alt="Rolls Royce Phantom">
-        <h3>Rolls Royce Phantom</h3>
-        <p>₦250,000,000 — The definition of luxury and prestige.</p>
-      </div>
-      <div class="car-card">
-        <img src="{% static 'general/img/bugatti-chiron.jpg' %}" alt="Bugatti Chiron">
-        <h3>Bugatti Chiron</h3>
-        <p>₦1,200,000,000 — Engineering masterpiece of speed.</p>
-      </div>
-      <div class="car-card">
-        <img src="{% static 'general/img/tesla-models.jpg' %}" alt="Tesla Model S Plaid">
-        <h3>Tesla Model S Plaid</h3>
-        <p>₦95,000,000 — The fastest electric car in the world.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
-  <section class="testimonials" id="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial">
-        <p>"The experience of buying my dream car was flawless. Absolute professionalism!"</p>
-        <h4>— Adewale, Lagos</h4>
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials" id="testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p>"The experience of buying my dream car was flawless. Absolute professionalism!"</p>
+          <h4>— Adewale, Lagos</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Luxury Motors exceeded my expectations. The Lamborghini Aventador is perfect!"</p>
+          <h4>— Chidinma, Abuja</h4>
+        </div>
+        <div class="testimonial">
+          <p>"The service and quality are unmatched. I feel like royalty driving my Rolls Royce."</p>
+          <h4>— Emeka, Port Harcourt</h4>
+        </div>
       </div>
-      <div class="testimonial">
-        <p>"Luxury Motors exceeded my expectations. The Lamborghini Aventador is perfect!"</p>
-        <h4>— Chidinma, Abuja</h4>
-      </div>
-      <div class="testimonial">
-        <p>"The service and quality are unmatched. I feel like royalty driving my Rolls Royce."</p>
-        <h4>— Emeka, Port Harcourt</h4>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; 2025 Luxury Motors. All Rights Reserved.</p>
-  </footer>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <p>&copy; 2025 Luxury Motors. All Rights Reserved.</p>
+    </footer>
 
-  <!-- ===== BACK TO TOP BUTTON ===== -->
-  <button id="backToTop" title="Go to top">↑</button>
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <button id="backToTop" title="Go to top">↑</button>
 
-  <script>
-    // Back to Top functionality
-    const backToTopBtn = document.getElementById("backToTop");
-    window.onscroll = function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTopBtn.style.display = "block";
-      } else {
-        backToTopBtn.style.display = "none";
-      }
-    };
-    backToTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
-</body>
-</html>
+    <script>
+      // Back to Top functionality
+      const backToTopBtn = document.getElementById("backToTop");
+      window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      };
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+  </html>

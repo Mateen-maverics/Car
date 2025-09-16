@@ -4,22 +4,24 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.forms import AuthenticationForm
 from general.models import CarRegister, Contact, signup
-from .forms import SignUpForm
-
-
-# Car purchase - login required
-@login_required
-def buy_car(request, car_id):
-    try:
-        car = CarRegister.objects.get(id=car_id)
-    except CarRegister.DoesNotExist:
-        return redirect("carlist")  # Redirect to car list if car not found
-    return render(request, "buy_car.html", {"car": car})
+from .forms import SignUpForm, LoginForm
 
 
 # ================== AUTH ================== #
+class CustomLoginView(LoginView):
+    template_name = 'general/login.html'
+    authentication_form = LoginForm  # uses your custom LoginForm
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('home')
+
+
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('home')
+
+
 class SignupView(CreateView):
     model = signup
     form_class = SignUpForm
@@ -28,21 +30,19 @@ class SignupView(CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        # automatically log user in after signup
         login(self.request, self.object)
         return response
 
 
-class UserLoginView(LoginView):
-    template_name = "general/login.html"
-    authentication_form = AuthenticationForm
-    redirect_authenticated_user = True
-
-    def get_success_url(self):
-        return reverse_lazy("home")
-
-
-class UserLogoutView(LogoutView):
-    next_page = reverse_lazy("home")
+# ================== CAR PURCHASE ================== #
+@login_required
+def buy_car(request, car_id):
+    try:
+        car = CarRegister.objects.get(id=car_id)
+    except CarRegister.DoesNotExist:
+        return redirect("carlist")  # Redirect to car list if car not found
+    return render(request, "buy_car.html", {"car": car})
 
 
 # ================== STATIC PAGES ================== #
@@ -114,10 +114,4 @@ class ContactDetailView(DetailView):
     model = Contact
 
 
-# ================== SERVICES ================== #
-class ServicePageView(TemplateView):
-    template_name = 'general/service.html'
-
-
-class adminsite(TemplateView):
-    template_name = 'general/admin.html'
+# ========

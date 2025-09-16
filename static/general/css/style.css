@@ -1,14 +1,100 @@
-/* ===== GENERAL RESET ===== */
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000;
-    color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: #eee;
+  line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: #000;
+  border-bottom: 2px solid #d4af37;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+.brand {
+  color: #d4af37;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+.brand:hover { color: #fff; }
+
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.navbar-nav li { position: relative; }
+.navbar-nav li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
+}
+.navbar-nav li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #d4af37;
+  transition: width 0.3s ease;
+}
+.navbar-nav li a:hover {
+  color: #d4af37;
+  text-shadow: 0 0 8px #d4af37, 0 0 15px rgba(212,175,55,0.7);
+}
+.navbar-nav li a:hover::after {
+  width: 100%;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  background: #111;
+  list-style: none;
+  padding: 0.5rem 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+}
+.dropdown-menu li a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+.dropdown-menu li a:hover { 
+  color: #d4af37;
+  text-shadow: 0 0 8px #d4af37;
+}
+.navbar-nav li:hover .dropdown-menu {
+  display: block;
 }
 
 h1 {
-    color: white;
+    color: rgb(253, 245, 245);
     font-size: 2.5em;
     margin-bottom: 15px;
 }
@@ -23,34 +109,31 @@ body > img {
     width: 100%;
     height: auto;
 }
-
-/* ===== NAVBAR ===== */
-.navbar-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* Dropdown */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  background: #111;
+  list-style: none;
+  padding: 0.5rem 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
-
-.navbar-nav li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.1em;
-    font-weight: 500;
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
 }
-
-.navbar-nav li a:hover,
-.navbar-nav li a.active {
-    color: gold;
-    text-decoration: underline;
+.dropdown-menu li a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
 }
-
-.brand {
-    color: gold;
-    font-size: 1.5em;
-    font-weight: bold;
+.dropdown-menu li a:hover { 
+  color: #d4af37;
+  text-shadow: 0 0 8px #d4af37;
+}
+.navbar-nav li:hover .dropdown-menu {
+  display: block;
 }
 
 /* About Page Navbar */
@@ -99,9 +182,52 @@ body > img {
     color: gold;
     text-decoration: underline;
 }
+/* ===== HERO ===== */
+.hero {
+  background: url("../img/hero-aventador.jpg") no-repeat center center/cover;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.btn {
+  background: gold;
+  color: black;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.btn:hover { 
+  background: #e6c200; 
+  box-shadow: 0 0 12px gold, 0 0 25px rgba(212,175,55,0.8);
+}
 
 /* ===== HERO SECTIONS ===== */
-.hero,
 .about-hero,
 .services-hero {
     background-size: cover;
@@ -466,50 +592,67 @@ body > img {
     background: #e6c200;
 }
 
-/* ===== AUTH PAGES (Login & Signup) ===== */
-.auth-page {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
+/* ===== MODALS (Signup & Login) ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  animation: fadeIn 0.4s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+.modal-content h2 {
+  color: #2a5298;
+  margin-bottom: 1rem;
+}
+.close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
 }
 
-.auth-container {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
-.auth-title {
-    margin-bottom: 1.5rem;
-    color: #333;
-}
-
+/* Auth Forms inside modal */
 .auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-
 .auth-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+.auth-form input:focus {
+  outline: none;
+  border-color: #2a5298;
+  box-shadow: 0 0 4px rgba(42,82,152,0.5);
+}
+.auth-form .btn {
+  background: #2a5298;
+  color: #fff;
+  border: none;
+}
+.auth-form .btn:hover {
+  background: #1e3c72;
 }
 
-.auth-form input:focus {
-    outline: none;
-    border-color: #2a5298;
-    box-shadow: 0 0 4px rgba(42,82,152,0.5);
-}
 
 .btn {
     background: #2a5298;
@@ -546,86 +689,6 @@ body > img {
     color: #cc0000;
     font-size: 0.9rem;
 }
-
-/* ===== NAVBAR DROPDOWN ===== */
-.navbar {
-    background: #2a5298;
-    padding: 1rem;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-}
-
-.nav-links li {
-    position: relative;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    list-style: none;
-    padding: 0.5rem 0;
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    min-width: 150px;
-}
-
-.dropdown-menu li {
-    padding: 0.5rem 1rem;
-}
-
-.dropdown-menu li a {
-    color: #333;
-    display: block;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-/* HERO */
-.hero {
-  background: url("img/hero-aventador.jpg") no-repeat center center/cover;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-}
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
-.btn {
-  background: gold;
-  color: black;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-.btn:hover { background: #e6c200; }
 
 /* BRAND LOGOS */
 .logos {
@@ -704,14 +767,6 @@ body > img {
   color: gold;
 }
 
-/* FOOTER */
-footer {
-  background: #111;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
-  color: #aaa;
-}
 
 /* BACK TO TOP */
 #backToTop {
@@ -734,10 +789,17 @@ footer {
   background: #e6c200;
   transform: scale(1.1);
 }
-
+/* ===== FOOTER ===== */
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }

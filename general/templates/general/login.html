@@ -7,26 +7,27 @@
     <title>Login | Car Project</title>
     <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
 </head>
-<body class="auth-page">
 
-    <div class="auth-container">
-        <h2 class="auth-title">Login to Your Account</h2>
+<body class="login-page">
+    <!-- Navigation -->
+    {% include "partials/navbar.html" %}
 
-        {% if form.errors %}
-            <div class="error-message">
-                <p>⚠️ Invalid username or password. Please try again.</p>
-            </div>
-        {% endif %}
-
-        <form method="post" class="auth-form">
+    <section class="login-section container">
+        <h2>Login to Your Account</h2>
+        <form method="post" action="{% url 'login' %}" class="login-form">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="form-group
+">
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" id="id_username" required>
+            </div>
+            <div class="form-group">
+                <label for="id_password">Password:</label>
+                <input type="password" name="password" id="id_password" required>
+            </div>
             <button type="submit" class="btn">Login</button>
         </form>
-        <p class="auth-footer">
-            Don’t have an account? <a href="{% url 'signup' %}">Create one</a>
-        </p>
-    </div>
-
+        <p class="signup-link">Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    </section>
 </body>
 </html>

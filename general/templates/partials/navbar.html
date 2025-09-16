@@ -22,7 +22,9 @@
         <li class="about-nav-item nav-item"><a class="about-nav-link nav-link" href="{% url 'contact' %}">Contact</a></li>
 
         {% if user.is_staff %}
-          <li class="about-nav-item nav-item"><a class="about-nav-link nav-link admin-link" href="/adminsite/">Admin</a></li>
+          <li class="about-nav-item nav-item">
+            <a class="about-nav-link nav-link admin-link" href="/adminsite/">Admin</a>
+          </li>
         {% endif %}
 
         <!-- My Account Dropdown -->
@@ -30,13 +32,25 @@
           <a href="#" class="about-nav-link nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="navbarDropdown">
             My Account
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu p-3" aria-labelledby="navbarDropdown" style="min-width: 250px;">
             {% if user.is_authenticated %}
-              <li><a class="dropdown-item">Welcome, {{ user.username }}</a></li>
+              <li class="mb-2"><strong>Welcome, {{ user.username }}</strong></li>
               <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-              <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
-              <li><a class="dropdown-item" href="{% url 'signup' %}">Sign Up</a></li>
+              <!-- Inline Login Form -->
+              <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="mb-2">
+                  <input type="text" name="username" class="form-control" placeholder="Username" required>
+                </div>
+                <div class="mb-2">
+                  <input type="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-sm btn-primary w-100">Login</button>
+              </form>
+              <hr>
+              <li><a class="dropdown-item text-center" href="{% url 'signup' %}">Sign Up</a></li>
+              <li><a class="dropdown-item text-center" href="{% url 'login' %}">Go to Login Page</a></li>
             {% endif %}
           </ul>
         </li>

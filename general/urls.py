@@ -1,6 +1,9 @@
 from django.urls import path
-from .views import *
-from django.contrib.auth import views as auth_views
+from .views import (
+    HomePageView, AboutPageView, ContactPageView, CarListView, CarDetailView,
+    ContactFormResultView, ContactDetailView, RegisterPageView, ServicePageView,
+    LuxuryPageView, AdminPageView, buy_car, SignupView, CustomLoginView, CustomLogoutView
+)
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
@@ -14,10 +17,11 @@ urlpatterns = [
     path('services/', ServicePageView.as_view(), name='services'),
     path('luxury/', LuxuryPageView.as_view(), name='luxury'),
     path('adminsite/', AdminPageView.as_view(), name='adminsite'),    
-    path('buy/<int:car_id>/', buy_car, name='buy_car'),  # Buying a car
+    path('buy/<int:car_id>/', buy_car, name='buy_car'),
 
     # 🔑 Auth
     path('signup/', SignupView.as_view(), name='signup'),
-    path('login/', auth_views.LoginView.as_view(template_name="general/login.html"), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page="home"), name='logout'),
+    path("login/", CustomLoginView.as_view(), name="login"),
+    path("logout/", CustomLogoutView.as_view(), name="logout"),
 ]
+
