@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
-from general.models import CarRegister, Contact, signup
+from general.models import CarRegister, Contact, Signup, Service 
 from .forms import SignUpForm, LoginForm
 
 
@@ -23,7 +23,7 @@ class CustomLogoutView(LogoutView):
 
 
 class SignupView(CreateView):
-    model = signup
+    model = Signup
     form_class = SignUpForm
     template_name = "general/signup.html"
     success_url = reverse_lazy("home")
@@ -113,5 +113,9 @@ class ContactDetailView(DetailView):
     template_name = 'general/details.html'
     model = Contact
 
-
+# ================== SERVICE ================== #
+class ServicePageView(ListView):
+    model = Service
+    template_name = "general/service.html"
+    context_object_name = "services"
 # ========
