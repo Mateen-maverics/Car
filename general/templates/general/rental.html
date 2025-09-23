@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental | Car Project</title>
+   <!-- Global Styles -->
+  <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
+  <!-- Rental Specific Styles -->
+  <link rel="stylesheet" href="{% static 'general/css/rental.css' %}">
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  {% include "partials/navbar.html" %}
+
+  <!-- ===== HERO ===== -->
+  <section class="hero rental-hero">
+    <div class="hero-content">
+      <h1>Rent Your Dream Car Today</h1>
+      <p>Choose from the latest models or budget-friendly used cars for your journey.</p>
+    </div>
+  </section>
+
+  <!-- ===== RENTAL FORM ===== -->
+  <section class="rental-form-section">
+    <h2>Car Rental Request Form</h2>
+    <form method="post" class="rental-form">
+      {% csrf_token %}
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="car">Choose Car</label>
+      <select id="car" name="car" required>
+        <option value="">-- Select a Car --</option>
+        <option value="Mercedes-Benz S-Class">Mercedes-Benz S-Class</option>
+        <option value="BMW i8">BMW i8</option>
+        <option value="Toyota Corolla">Toyota Corolla</option>
+        <option value="Honda Civic">Honda Civic</option>
+        <option value="Audi R8">Audi R8</option>
+      </select>
+
+      <label for="rental_days">Rental Duration (Days)</label>
+      <input type="number" id="rental_days" name="rental_days" min="1" placeholder="e.g. 5" required>
+
+      <label for="message">Additional Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Any special requests?"></textarea>
+
+      <button type="submit" class="btn">Submit Rental Request</button>
+    </form>
+  </section>
+
+  <!-- ===== CAR LISTINGS ===== -->
+  <section class="car-listings">
+    <h2>Available Cars for Rent</h2>
+
+    <div class="car-category">
+      <h3>🚘 Latest Cars</h3>
+      <div class="car-grid">
+        <div class="car-card">
+          <img src="{% static 'general/img/mercedes-sclass.jpg' %}" alt="Mercedes-Benz S-Class">
+          <h4>Mercedes-Benz S-Class</h4>
+          <p>₦70,000,000 — Elegance and cutting-edge comfort</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/bmw-i8.webp' %}" alt="BMW i8">
+          <h4>BMW i8</h4>
+          <p>₦65,000,000 — Hybrid supercar with futuristic design.</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/audi-r8-2023.webp' %}" alt="Audi R8">
+          <h4>Audi R8</h4>
+          <p>₦80,000,000 — V10 powerhouse with refined style</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-category">
+      <h3>🚗 Used Cars</h3>
+      <div class="car-grid">
+        <div class="car-card">
+          <img src="{% static 'general/img/toyota-corolla.jpg' %}" alt="Toyota Corolla">
+          <h4>Toyota Corolla</h4>
+          <p>₦40,000 / day</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/honda-civic.jpg' %}" alt="Honda Civic">
+          <h4>Honda Civic</h4>
+          <p>₦45,000 / day</p>
+        </div>
+        <div class="car-card">
+          <img src="{% static 'general/img/nissan-altima.jpg' %}" alt="Nissan Altima">
+          <h4>Nissan Altima</h4>
+          <p>₦50,000 / day</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  {% include "partials/footer.html" %}
+
+</body>
+</html>

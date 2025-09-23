@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
-from general.models import CarRegister, Contact, Signup, Service 
+from general.models import CarRegister, Contact, Signup, Service
 from .forms import SignUpForm, LoginForm
 
 
@@ -52,6 +52,9 @@ class HomePageView(TemplateView):
 
 class LuxuryPageView(TemplateView):
     template_name = 'general/luxury.html'
+
+class RentalPageView(TemplateView):
+    template_name = 'general/rental.html'
 
 
 class AdminPageView(TemplateView):
@@ -118,4 +121,21 @@ class ServicePageView(ListView):
     model = Service
     template_name = "general/service.html"
     context_object_name = "services"
-# ========
+
+
+# ================== RENTAL ================== #
+class RentalPageView(ListView):
+    model = CarRegister
+    template_name = "general/rental.html"
+    context_object_name = "cars"
+
+    def get_queryset(self):
+        # You can adjust this to show only available cars for rent
+        return CarRegister.objects.order_by('-year')  # newest cars first
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Separate latest and used cars if you like
+        context['latest_cars'] = CarRegister.objects.filter(year__gte=2022).order_by('-year')
+        context['used_cars'] = CarRegister.objects.filter(year__lt=2022).order_by('-year')
+        return context

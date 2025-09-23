@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     HomePageView, AboutPageView, ContactPageView, CarListView, CarDetailView,
     ContactFormResultView, ContactDetailView, RegisterPageView, ServicePageView,
-    LuxuryPageView, AdminPageView, buy_car, SignupView, CustomLoginView, CustomLogoutView
+    LuxuryPageView, AdminPageView, buy_car, SignupView, CustomLoginView, CustomLogoutView,
+    RentalPageView  # ✅ Import your new rental view
 )
 
 urlpatterns = [
@@ -19,9 +20,11 @@ urlpatterns = [
     path('adminsite/', AdminPageView.as_view(), name='adminsite'),    
     path('buy/<int:car_id>/', buy_car, name='buy_car'),
 
+    # ✅ Rental page
+    path('rental/', RentalPageView.as_view(), name='rental'),
+
     # 🔑 Auth
     path('signup/', SignupView.as_view(), name='signup'),
     path("login/", CustomLoginView.as_view(), name="login"),
     path("logout/", CustomLogoutView.as_view(), name="logout"),
 ]
-
