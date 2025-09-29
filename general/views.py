@@ -4,8 +4,8 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
-from general.models import CarRegister, Contact, Signup, Service
-from .forms import SignUpForm, LoginForm
+from general.models import CarRegister, Contact, Signup, Service, Rental, InsuranceQuote
+from .forms import SignUpForm, LoginForm, InsuranceQuoteForm
 
 
 # ================== AUTH ================== #
@@ -60,6 +60,8 @@ class RentalPageView(TemplateView):
 class AdminPageView(TemplateView):
     template_name = 'general/admin.html'
 
+class insurancePageView(TemplateView):
+    template_name = 'general/insurance.html'
 
 class AboutPageView(TemplateView):
     template_name = 'general/about.html'
@@ -124,9 +126,15 @@ class ServicePageView(ListView):
 
 
 # ================== RENTAL ================== #
-class RentalPageView(ListView):
-    model = CarRegister
+
+class RentalCreateView(CreateView):
     template_name = "general/rental.html"
+    model = Rental
+    fields = '__all__'
+    success_url = reverse_lazy('rentallist')
+class RentalPageView(ListView):
+    model = Rental
+    template_name = "general/rentallist.html"
     context_object_name = "cars"
 
     def get_queryset(self):
@@ -139,3 +147,15 @@ class RentalPageView(ListView):
         context['latest_cars'] = CarRegister.objects.filter(year__gte=2022).order_by('-year')
         context['used_cars'] = CarRegister.objects.filter(year__lt=2022).order_by('-year')
         return context
+class InsurancePageView(TemplateView):
+    template_name = 'general/insurance.html'
+class InsuranceQuoteView(CreateView):
+    model = InsuranceQuote
+    form_class = InsuranceQuoteForm
+    template_name = "insurance.html"
+    success_url = reverse_lazy("insurance")  # redirect to same page after submit
+
+    def form_valid(self, form):
+        # You can add extra logic here (e.g., send confirmation email)
+        return super().form_valid(form)
+

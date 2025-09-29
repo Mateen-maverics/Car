@@ -7,7 +7,7 @@
   <title>Car Rental | Car Project</title>
    <!-- Global Styles -->
   <link rel="stylesheet" href="{% static 'general/css/style.css' %}">
-  <!-- Rental Specific Styles -->
+   <!-- Rental Specific Styles -->
   <link rel="stylesheet" href="{% static 'general/css/rental.css' %}">
 <body>
 
@@ -28,7 +28,7 @@
     <form method="post" class="rental-form">
       {% csrf_token %}
       <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      <input type="text" id="name" name="full_name" placeholder="Enter your full name" required>
 
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required>
@@ -36,7 +36,7 @@
       <label for="phone">Phone Number</label>
       <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
 
-      <label for="car">Choose Car</label>
+      {% comment %} <label for="car">Choose Car</label>
       <select id="car" name="car" required>
         <option value="">-- Select a Car --</option>
         <option value="Mercedes-Benz S-Class">Mercedes-Benz S-Class</option>
@@ -44,10 +44,10 @@
         <option value="Toyota Corolla">Toyota Corolla</option>
         <option value="Honda Civic">Honda Civic</option>
         <option value="Audi R8">Audi R8</option>
-      </select>
+      </select> {% endcomment %}
 
       <label for="rental_days">Rental Duration (Days)</label>
-      <input type="number" id="rental_days" name="rental_days" min="1" placeholder="e.g. 5" required>
+      <input type="number" id="rental_days" name="duration" min="1" placeholder="e.g. 5" required>
 
       <label for="message">Additional Message</label>
       <textarea id="message" name="message" rows="4" placeholder="Any special requests?"></textarea>
@@ -90,12 +90,12 @@
           <p>₦40,000 / day</p>
         </div>
         <div class="car-card">
-          <img src="{% static 'general/img/honda-civic.jpg' %}" alt="Honda Civic">
+          <img src="{% static 'general/img/honda-civic.webp' %}" alt="Honda Civic">
           <h4>Honda Civic</h4>
           <p>₦45,000 / day</p>
         </div>
         <div class="car-card">
-          <img src="{% static 'general/img/nissan-altima.jpg' %}" alt="Nissan Altima">
+          <img src="{% static 'general/img/nissan-altima.webp' %}" alt="Nissan Altima">
           <h4>Nissan Altima</h4>
           <p>₦50,000 / day</p>
         </div>

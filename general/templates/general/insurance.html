@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'general/css/insurance.css' %}">
+</head>
+<!-- Hero -->
+  <section class="insurance-hero">
+    <div class="hero-content">
+      <h1>Reliable Car Insurance</h1>
+      <p>Drive with confidence knowing you're fully protected.</p>
+      <a href="#quote" class="btn">Get a Quote</a>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-us">
+    <h2>Why Choose Our Insurance?</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="img/secure.png" alt="Secure">
+        <h3>Comprehensive Coverage</h3>
+        <p>From accidents to theft, you’re fully protected with our tailored plans.</p>
+      </div>
+      <div class="feature">
+        <img src="img/support.png" alt="Support">
+        <h3>24/7 Support</h3>
+        <p>Our dedicated team is available round the clock to assist you.</p>
+      </div>
+      <div class="feature">
+        <img src="img/affordable.png" alt="Affordable">
+        <h3>Affordable Premiums</h3>
+        <p>Flexible payment options designed to fit your budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section class="plans" id="plans">
+    <h2>Insurance Plans</h2>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <h3>Basic</h3>
+        <p class="price">$49<span>/mo</span></p>
+        <ul>
+          <li>Third-party coverage</li>
+          <li>Accident protection</li>
+          <li>Emergency roadside help</li>
+        </ul>
+        <a href="#quote" class="btn">Choose Plan</a>
+      </div>
+      <div class="plan-card popular">
+        <h3>Standard</h3>
+        <p class="price">$89<span>/mo</span></p>
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Theft protection</li>
+          <li>Extended roadside assistance</li>
+        </ul>
+        <a href="#quote" class="btn">Choose Plan</a>
+      </div>
+      <div class="plan-card">
+        <h3>Premium</h3>
+        <p class="price">$129<span>/mo</span></p>
+        <ul>
+          <li>Everything in Standard</li>
+          <li>Worldwide coverage</li>
+          <li>Rental car replacement</li>
+        </ul>
+        <a href="#quote" class="btn">Choose Plan</a>
+      </div>
+    </div>
+  </section>
+   <form method="post" class="quote-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Submit Request</button>
+  </form>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>What does comprehensive insurance cover?</h3>
+      <p>It covers third-party damage, theft, fire, and accidental damage to your vehicle.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I upgrade my plan later?</h3>
+      <p>Yes, you can upgrade or downgrade your plan anytime.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you offer roadside assistance?</h3>
+      <p>Yes, 24/7 roadside assistance is included in Standard and Premium plans.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to Protect Your Car?</h2>
+    <p>Get started today and enjoy peace of mind on the road.</p>
+    <a href="#quote" class="btn">Get a Free Quote</a>
+  </section>
+
+    <!-- Footer -->
+    {% include "partials/footer.html" %}
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <button id="backToTop" title="Go to top">↑</button>
+
+    <script>
+      // Back to Top functionality
+      const backToTopBtn = document.getElementById("backToTop");
+      window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      };
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>   
+
+</body>
+</html>
+
+

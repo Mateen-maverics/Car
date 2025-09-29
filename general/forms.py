@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from .models import InsuranceQuote
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True, help_text="Enter a valid email address.")
@@ -28,3 +29,15 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Password"})
     )
+
+class InsuranceQuoteForm(forms.ModelForm):
+    class Meta:
+        model = InsuranceQuote
+        fields = ['name', 'email', 'car_model', 'plan', 'message']
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Enter your full name'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Enter your email'}),
+            'car_model': forms.TextInput(attrs={'placeholder': 'e.g. Toyota Corolla'}),
+            'plan': forms.Select(),
+            'message': forms.Textarea(attrs={'rows': 4, 'placeholder': 'Any extra details?'}),
+        }

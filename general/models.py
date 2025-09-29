@@ -56,3 +56,30 @@ class Signup(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Rental(models.Model):
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    duration = models.PositiveIntegerField(help_text="Duration in days")  # Added rental duration field
+    message = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Rental by {self.full_name} for {self.duration} days"
+
+class InsuranceQuote(models.Model):
+    PLAN_CHOICES = [
+        ('basic', 'Basic'),
+        ('standard', 'Standard'),
+        ('premium', 'Premium'),
+    ]
+
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    car_model = models.CharField(max_length=150)
+    plan = models.CharField(max_length=20, choices=PLAN_CHOICES)
+    message = models.TextField(blank=True, null=True)
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.plan.capitalize()} Plan"

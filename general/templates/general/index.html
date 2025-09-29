@@ -50,6 +50,7 @@
                 <img src="{% static 'general/img/rental.jpg' %}" alt="Car Rentals">
                 <h3>Daily Rentals</h3>
                 <p>Perfect for quick trips around town.</p>
+                </a>
             </div>
             <div class="service-card">
                 <img src="{% static 'general/img/family.jpg' %}" alt="Family Car">
@@ -70,9 +71,11 @@
                 <p>Full protection for peace of mind.</p>
             </div>
             <div class="service-card">
+                <a href="{% url 'insurance' %}">
                 <img src="{% static 'general/img/protection.jpg' %}" alt="Car Protection">
                 <h3>Affordable Premiums</h3>
                 <p>Quality insurance at prices that suit you.</p>
+                </a>
             </div>
         </div>
     </section>
