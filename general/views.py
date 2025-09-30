@@ -11,7 +11,7 @@ from .forms import SignUpForm, LoginForm, InsuranceQuoteForm
 # ================== AUTH ================== #
 class CustomLoginView(LoginView):
     template_name = 'general/login.html'
-    authentication_form = LoginForm  # uses your custom LoginForm
+    authentication_form = LoginForm
     redirect_authenticated_user = True
 
     def get_success_url(self):
@@ -30,7 +30,6 @@ class SignupView(CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        # automatically log user in after signup
         login(self.request, self.object)
         return response
 
@@ -41,7 +40,7 @@ def buy_car(request, car_id):
     try:
         car = CarRegister.objects.get(id=car_id)
     except CarRegister.DoesNotExist:
-        return redirect("carlist")  # Redirect to car list if car not found
+        return redirect("carlist")
     return render(request, "buy_car.html", {"car": car})
 
 
@@ -53,15 +52,11 @@ class HomePageView(TemplateView):
 class LuxuryPageView(TemplateView):
     template_name = 'general/luxury.html'
 
-class RentalPageView(TemplateView):
-    template_name = 'general/rental.html'
-
 
 class AdminPageView(TemplateView):
     template_name = 'general/admin.html'
 
-class insurancePageView(TemplateView):
-    template_name = 'general/insurance.html'
+
 
 class AboutPageView(TemplateView):
     template_name = 'general/about.html'
@@ -118,6 +113,7 @@ class ContactDetailView(DetailView):
     template_name = 'general/details.html'
     model = Contact
 
+
 # ================== SERVICE ================== #
 class ServicePageView(ListView):
     model = Service
@@ -125,13 +121,13 @@ class ServicePageView(ListView):
     context_object_name = "services"
 
 
-# ================== RENTAL ================== #
-
+# ================== RENTAL ================== # 
 class RentalCreateView(CreateView):
     template_name = "general/rental.html"
     model = Rental
     fields = '__all__'
     success_url = reverse_lazy('rentallist')
+
 class RentalPageView(ListView):
     model = Rental
     template_name = "general/rentallist.html"
@@ -147,15 +143,22 @@ class RentalPageView(ListView):
         context['latest_cars'] = CarRegister.objects.filter(year__gte=2022).order_by('-year')
         context['used_cars'] = CarRegister.objects.filter(year__lt=2022).order_by('-year')
         return context
-class InsurancePageView(TemplateView):
-    template_name = 'general/insurance.html'
+
+# ================== INSURANCE ================== #
 class InsuranceQuoteView(CreateView):
     model = InsuranceQuote
     form_class = InsuranceQuoteForm
-    template_name = "insurance.html"
-    success_url = reverse_lazy("insurance")  # redirect to same page after submit
+    template_name = "general/insurance.html"
+    success_url = reverse_lazy("insurance")
 
     def form_valid(self, form):
-        # You can add extra logic here (e.g., send confirmation email)
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        self.request.session['form_success'] = True
+        return response
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.session.get('form_success'):
+            context['success'] = True
+            del self.request.session['form_success']
+        return context

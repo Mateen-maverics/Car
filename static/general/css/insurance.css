@@ -1,288 +1,324 @@
-/* Import shared design */
-@import url('style.css');
-/* ===== Global ===== */
-body.insurance-page {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f4f4;
-  color: #333;
+/* ===================== GLOBAL ===================== */
+* {
   margin: 0;
-  padding-top: 70px; /* To offset fixed navbar */
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-/* ===== NAVBAR ===== */
-.navbar {
-  background: #000;
-  border-bottom: 2px solid #d4af37;
-  padding: 1rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+
+body {
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
 }
-.brand {
-  color: #d4af37;
-  font-size: 1.8rem;
+
+h1, h2, h3 {
   font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 2px;
-  transition: color 0.3s ease;
-}
-.brand:hover { color: #fff; }
-
-.navbar-nav {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-.navbar-nav li { position: relative; }
-.navbar-nav li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-  position: relative;
-}
-.navbar-nav li a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -5px;
-  background: #d4af37;
-  transition: width 0.3s ease;
-}
-.navbar-nav li a:hover {
-  color: #d4af37;
-  text-shadow: 0 0 8px #d4af37, 0 0 15px rgba(212,175,55,0.7);
-}
-.navbar-nav li a:hover::after {
-  width: 100%;
+  color: #222;
 }
 
-/* ===== Hero ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===================== HERO ===================== */
 .insurance-hero {
-  height: 60vh;
   background: url("../img/insurance-hero.jpg") center/cover no-repeat;
+  height: 60vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: #fff;
+  justify-content: center;
   text-align: center;
   position: relative;
+  color: #fff;
 }
+
 .insurance-hero::after {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.55);
 }
-.hero-content {
+
+.insurance-hero .hero-content {
   position: relative;
   z-index: 2;
+  max-width: 700px;
+  padding: 0 1rem;
 }
-.hero-content h1 {
+
+.insurance-hero h1 {
   font-size: 2.8rem;
   margin-bottom: 1rem;
 }
-.hero-content p {
+
+.insurance-hero p {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
 }
-.btn {
+
+.insurance-hero .btn {
   background: #007bff;
   color: #fff;
-  padding: 12px 24px;
+  padding: 12px 28px;
   border-radius: 8px;
-  text-decoration: none;
   transition: 0.3s;
+  font-weight: 600;
 }
-.btn:hover {
+
+.insurance-hero .btn:hover {
   background: #0056b3;
 }
 
-/* ===== Why Choose Us ===== */
+/* ===================== WHY US ===================== */
 .why-us {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   background: #fff;
   text-align: center;
 }
+
 .why-us h2 {
   margin-bottom: 2rem;
-  font-size: 2rem;
 }
+
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
 }
+
 .feature {
   background: #f9f9f9;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: 0.3s;
 }
+
 .feature img {
-  width: 50px;
+  width: 60px;
   margin-bottom: 1rem;
 }
+
 .feature h3 {
   margin-bottom: 0.5rem;
   color: #007bff;
 }
 
-/* ===== Plans ===== */
+.feature p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.feature:hover {
+  background: #eef5ff;
+  transform: translateY(-5px);
+}
+
+/* ===================== PLANS ===================== */
 .plans {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
+  background: #f9f9f9;
   text-align: center;
 }
-.plans h2 {
-  margin-bottom: 2rem;
-}
+
 .plan-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
+
 .plan-card {
   background: #fff;
-  padding: 2rem 1.5rem;
+  padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
 }
+
 .plan-card h3 {
-  margin-bottom: 1rem;
-  color: #222;
-}
-.price {
-  font-size: 1.8rem;
-  font-weight: bold;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
   color: #007bff;
-  margin-bottom: 1rem;
 }
-.price span {
+
+.plan-card .price {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.plan-card .price span {
   font-size: 1rem;
   color: #555;
 }
+
 .plan-card ul {
   list-style: none;
-  margin-bottom: 1.5rem;
-}
-.plan-card ul li {
-  margin: 0.5rem 0;
-}
-.plan-card:hover {
-  transform: translateY(-8px);
-}
-.plan-card.popular {
-  border: 2px solid #007bff;
+  margin: 1rem 0;
 }
 
-/* ===== FAQ ===== */
-.faq {
-  padding: 3rem 2rem;
-  background: #fff;
+.plan-card ul li {
+  margin: 0.5rem 0;
+  color: #444;
 }
+
+.plan-card .btn {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.plan-card .btn:hover {
+  background: #0056b3;
+}
+
+.plan-card.popular {
+  border: 2px solid #007bff;
+  transform: scale(1.05);
+}
+
+/* ===================== QUOTE FORM ===================== */
+.quote {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+
+.quote h2 {
+  margin-bottom: 1.5rem;
+}
+
+.quote-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.quote-form p {
+  margin-bottom: 1rem;
+}
+
+.quote-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  transition: 0.3s;
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0,123,255,0.3);
+}
+
+.quote-form .btn {
+  width: 100%;
+  background: #007bff;
+  color: #fff;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.quote-form .btn:hover {
+  background: #0056b3;
+}
+
+.success-msg {
+  background: #e6ffed;
+  color: #2e7d32;
+  border: 1px solid #81c784;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ===================== FAQ ===================== */
+.faq {
+  padding: 4rem 2rem;
+  background: #f9f9f9;
+}
+
 .faq h2 {
   text-align: center;
   margin-bottom: 2rem;
 }
+
 .faq-item {
-  margin-bottom: 1.5rem;
-}
-.faq-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #007bff;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* ===== CTA ===== */
+.faq-item h3 {
+  margin-bottom: 0.5rem;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+/* ===================== CTA ===================== */
 .cta {
-  background: #007bff;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #007bff, #0056b3);
   color: #fff;
   text-align: center;
-  padding: 3rem 2rem;
 }
+
 .cta h2 {
   margin-bottom: 1rem;
+  font-size: 2rem;
 }
+
 .cta p {
   margin-bottom: 1.5rem;
 }
 
-/* ===== Footer ===== */
-.footer {
-  background: #222;
-  color: #fff;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 2rem;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .hero-content p {
-    font-size: 1rem;
-  }
-}
-
-/* ===== Quote Form ===== */
-.quote {
-  padding: 3rem 2rem;
-  background: #f9f9f9;
-  text-align: center;
-}
-.quote h2 {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-.quote-form {
-  max-width: 600px;
-  margin: 0 auto;
+.cta .btn {
   background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  text-align: left;
-}
-.form-group {
-  margin-bottom: 1.5rem;
-}
-.form-group label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  display: block;
-  color: #333;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
+  color: #007bff;
+  padding: 12px 28px;
   border-radius: 8px;
-  font-size: 1rem;
+  font-weight: bold;
   transition: 0.3s;
 }
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+
+.cta .btn:hover {
+  background: #e6e6e6;
 }
-.quote-form .btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  .insurance-hero h1 {
+    font-size: 2rem;
+  }
+  .insurance-hero p {
+    font-size: 1rem;
+  }
+  .plan-card.popular {
+    transform: none;
+  }
 }
